@@ -1,0 +1,68 @@
+##########################################################
+# Task Manager – Monorepo .gitignore
+##########################################################
+
+# ─── Java / Maven ────────────────────────────────────────
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+hs_err_pid*
+replay_pid*
+
+# ─── Spring Boot ─────────────────────────────────────────
+*.log
+spring.log
+application-local.properties
+application-secret.properties
+
+# ─── Node / React / Vite ─────────────────────────────────
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+*.tsbuildinfo
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# ─── IDE / Editor ────────────────────────────────────────
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# ─── Docker ──────────────────────────────────────────────
+.dockerignore
+
+# ─── Cloud ───────────────────────────────────────────────
+.gcloud/
+gcloud-service-key.json
+*.key.json
+
+# ─── Testing coverage ────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ─── Environment secrets ─────────────────────────────────
+.env
+.env.*
+!.env.example
+secrets/
