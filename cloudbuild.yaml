@@ -85,11 +85,11 @@ steps:
     args:
       - -c
       - |
-        BACKEND_URL=$(gcloud run services describe task-manager-backend \
+        BACKEND_URL=$$(gcloud run services describe task-manager-backend \
           --region=${_REGION} \
           --format="value(status.url)")
-        echo "Backend URL: $BACKEND_URL"
-        echo "$BACKEND_URL" > /workspace/backend_url.txt
+        echo "Backend URL: $$BACKEND_URL"
+        echo "$$BACKEND_URL" > /workspace/backend_url.txt
     waitFor: ["deploy-backend"]
 
   # ─────────────────────────────────────────────
@@ -102,9 +102,9 @@ steps:
     args:
       - -c
       - |
-        BACKEND_URL=$(cat /workspace/backend_url.txt)
+        BACKEND_URL=$$(cat /workspace/backend_url.txt)
         docker build \
-          --build-arg VITE_API_URL="$BACKEND_URL" \
+          --build-arg VITE_API_URL="$$BACKEND_URL" \
           -t "${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/frontend:${SHORT_SHA}" \
           -t "${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/frontend:latest" \
           ./frontend
