@@ -9,7 +9,7 @@
 ##############################################################
 
 substitutions:
-  _PROJECT_ID: "your-gcp-project-id"
+  _PROJECT_ID: "tasks-manager-488713"
   _REGION: "us-central1"
   _REPO: "task-manager"
 
